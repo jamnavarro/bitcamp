@@ -3,6 +3,7 @@ import './App.css';
 
 function App() {
   const [imageURL, setImageURL] = useState(null);
+  const [identifiedPerson, setIdentifiedPerson] = useState(null);
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -13,9 +14,20 @@ function App() {
     reader.readAsDataURL(file);
   };
 
-  const identifyImage = () => {
+  const identifyImage = async () => {
       // MODEL HERE
+      // this is for example, delete later
+      const identifiedName = await classifyImage(imageURL);
+      setIdentifiedPerson(identifiedName);
+      // end example
   }
+
+  // this is for example, delete later
+  const classifyImage = async () => {
+    const names = ["Chaewon", "Sakura", "Yunjin", "Kazuha", "Eunchae"];
+    return names[Math.floor(Math.random() * names.length)];
+  };
+  // end example
 
   return (
     <div className="main">
@@ -28,6 +40,8 @@ function App() {
       <input type="file" accept="image/*" onChange={handleImageUpload} />
 
       <button className="button" onClick={identifyImage}>Identify</button>
+
+      {identifiedPerson && (<p>This is {identifiedPerson}!</p>)}
     </div>
   );
 }
