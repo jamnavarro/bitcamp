@@ -2,12 +2,6 @@ import React, { useState } from "react";
 import * as tf from '@tensorflow/tfjs';
 import './App.css';
 
-async function runModel() {
-  // const model = await tf.loadGraphModel( /* add json file here! */)
-}
-
-
-
 function App() {
   const [imageURL, setImageURL] = useState(null);
   const [identifiedPerson, setIdentifiedPerson] = useState(null);
@@ -22,19 +16,22 @@ function App() {
   };
 
   const identifyImage = async () => {
-      // MODEL HERE
-      // this is for example, delete later
-      const identifiedName = await classifyImage(imageURL);
-      setIdentifiedPerson(identifiedName);
-      // end example
+    const formData = new FormData();
+    formData.append('image', imageURL);
+    
+    const response = await fetch('http://localhost:5000/predict', {
+      method: 'POST',
+      body: formData
+    });
+    
+    const data = await response.json();
+    setIdentifiedPerson(data.predicted_person);
   }
 
-  // this is for example, delete later
-  const classifyImage = async () => {
-    const names = ["Chaewon", "Sakura", "Yunjin", "Kazuha", "Eunchae"];
-    return names[Math.floor(Math.random() * names.length)];
-  };
-  // end example
+  // const classifyImage = async () => {
+  //   const names = ["Chaewon", "Sakura", "Yunjin", "Kazuha", "Eunchae"];
+  //   return names[Math.floor(Math.random() * names.length)];
+  // };
 
   return (
     <div className="main">
