@@ -1,70 +1,23 @@
-# Getting Started with Create React App
+# LESSERAFIND
+![cover](https://github.com/jamnavarro/bitcamp/assets/60476667/25dd0b34-a6c4-4612-b85f-612fd5a9f10c)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Inspiration
+We're both interested in Kpop groups, and have the shared experience of being overwhelmed trying to figure out who's who at first.
 
-## Available Scripts
+## What it does
+When users input an image of a member into LE SSERAFIND, the program tries to identify what member it is, and outputs their name.
 
-In the project directory, you can run:
+## How we built it
+The classification model is a small convolutional neural network built using PyTorch. The website itself is React-based, and mainly consists of a "Choose file" button. When a file is selected, it's sent to the CNN and the final classification is returned and displayed. 
 
-### `npm start`
+## Challenges we ran into
+We collected all of the data on our own, which meant that we weren't able to collect a significant amount of data. Because of this, our model struggled with overfitting and didn't have a particularly high accuracy on the test set.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Accomplishments that we're proud of
+We're both usually the designers instead of the programmers, so we're proud of ourselves for taking on such a big task, achieving an accuracy better than guessing, and dipping our toes into full-stack development.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## What we learned
+How to use Github pages, how to connect the interface to the model, how to address overfitting in models
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## What's next for LE SSERAFIND
+Collecting more data
