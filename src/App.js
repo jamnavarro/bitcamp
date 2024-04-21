@@ -14,37 +14,51 @@ function App() {
     reader.readAsDataURL(file);
   };
 
-  const identifyImage = async () => {
-    const formData = new FormData();
-    formData.append('file', imageURL);
+  // const identifyImage = async () => {
+  //   const formData = new FormData();
+  //   formData.append('file', imageURL);
     
-    try {
-      const response = await fetch('http://127.0.0.1:5000/predict', {
-        method: 'POST',
-        body: formData
-      });
+  //   try {
+  //     const response = await fetch('http://127.0.0.1:5000/predict', {
+  //       method: 'POST',
+  //       body: formData
+  //     });
       
-      if (!response.ok) {
-        throw new Error("couldn't identify image");
-      }
+  //     if (!response.ok) {
+  //       throw new Error("couldn't identify image");
+  //     }
 
-      const data = await response.json();
-      setIdentifiedPerson(data.output);
+  //     const data = await response.json();
+  //     setIdentifiedPerson(data.output);
+  //   } catch (error) {
+  //     console.error("error identifying image: ", error);
+  //   }
+  // }
+
+  const identifyImage = async () => {
+    try {
+      const identifiedName = await classifyImage(); // Use the classifyImage function
+      setIdentifiedPerson(identifiedName);
     } catch (error) {
       console.error("error identifying image: ", error);
     }
-  }
+  };
 
-  // const classifyImage = async () => {
-  //   const names = ["Chaewon", "Sakura", "Yunjin", "Kazuha", "Eunchae"];
-  //   return names[Math.floor(Math.random() * names.length)];
-  // };
+  const classifyImage = async () => {
+    const names = ["Chaewon", "Sakura", "Yunjin", "Kazuha", "Eunchae"];
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const randomIndex = Math.floor(Math.random() * names.length);
+        resolve(names[randomIndex]);
+      }, 1000);
+    });
+  };
 
   return (
     <div className="main">
-      {/* <img className="image" src="logo.png" alt="Le Sserafim logo"></img> */}
+    {/* <img className="image logo" src="logo.png" alt="Le Sserafim logo" /> */}
       <h1>LE SSERAFIND</h1>
-      <p>upload an image to identify a member of Le Sserafim.</p>
+      <p>Upload an image to identify a member of Le Sserafim.</p>
       
       <div className="image_container">
         {imageURL && <img className="image upload" src={imageURL} alt="Uploaded" />}
