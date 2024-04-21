@@ -1,23 +1,33 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
 import './App.css';
 
 function App() {
+  const [imageURL, setImageURL] = useState(null);
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      setImageURL(reader.result);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const identifyImage = () => {
+      // MODEL HERE
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+      <h1>Title here</h1>
+      
+      <div className="image_container">
+        {imageURL && <img className="image" src={imageURL} alt="Uploaded" />}
+      </div>
+
+      <input type="file" accept="image/*" onChange={handleImageUpload} />
+
+      <button className="button" onClick={identifyImage}>Identify</button>
     </div>
   );
 }
