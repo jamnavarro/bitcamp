@@ -11,6 +11,10 @@ body {
   background-attachment: fixed;
 }
 
+p {
+  font-size: calc(3px + 2vmin);
+}
+
 .main {
   min-height: 100vh;
   display: flex;
