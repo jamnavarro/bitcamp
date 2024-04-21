@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/jamnavarro.github.io/static/css/main.87ca3978.css",
-    "main.js": "/jamnavarro.github.io/static/js/main.7e75e463.js",
-    "static/media/background.jpeg": "/jamnavarro.github.io/static/media/background.051d071a5a2e55aa4457.jpeg",
-    "index.html": "/jamnavarro.github.io/index.html",
-    "main.87ca3978.css.map": "/jamnavarro.github.io/static/css/main.87ca3978.css.map",
-    "main.7e75e463.js.map": "/jamnavarro.github.io/static/js/main.7e75e463.js.map"
+    "main.css": "/static/css/main.6a833dbe.css",
+    "main.js": "/static/js/main.7e75e463.js",
+    "static/media/background.jpeg": "/static/media/background.051d071a5a2e55aa4457.jpeg",
+    "index.html": "/index.html",
+    "main.6a833dbe.css.map": "/static/css/main.6a833dbe.css.map",
+    "main.7e75e463.js.map": "/static/js/main.7e75e463.js.map"
   },
   "entrypoints": [
-    "static/css/main.87ca3978.css",
+    "static/css/main.6a833dbe.css",
     "static/js/main.7e75e463.js"
   ]
 }
