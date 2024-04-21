@@ -1,16 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
+
 div {
-  color: darkslateblue;
+  font-family: Epilogue, sans-serif;
+  margin: 5vh auto;
+}
+
+body {
+  background-image: url("/public/background.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .main {
-  background-color: aliceblue;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: darkslateblue;
+  color: white;
 }
 
 .image_container {
@@ -24,33 +32,36 @@ div {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
+  width: 50%;
+}
+
+.image.logo {
+  filter: invert(1);
 }
 
 .button {
+  font-family: Epilogue, sans-serif;
   background-color: white;
-  border-radius: 10px;
   border: none;
   text-align: center;
   font-size: 18px;
   padding: 10px;
-  width: 200px;
 }
 
 input[type=file]::file-selector-button {
+  font-family: Epilogue, sans-serif;
   background-color: white;
-  border-radius: 10px;
   border: none;
   font-size: 18px;
   padding: 10px;
-  /* width: 200px; */
-  margin-left: 27%;
+  margin-left: 26%;
   margin-bottom: 4vh;
 }
 
 input[type=file]::file-selector-button:hover {
   background-color: grey;
-  transition: 0.7s;
+  transition: 0.4s;
 }
 
 input[type=file] {

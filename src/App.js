@@ -31,12 +31,14 @@ function App() {
 
   return (
     <div className="main">
-      <h1>Title here</h1>
+      <img className="image logo" src="logo.png" alt="Le Sserafim logo"></img>
+      <h1>LE SSERAFIND</h1>
+      <p>description here</p>
       
       <div className="image_container">
         {imageURL && <img className="image" src={imageURL} alt="Uploaded" />}
       </div>
-
+      
       <input type="file" accept="image/*" onChange={handleImageUpload} />
 
       <button className="button" onClick={identifyImage}>Identify</button>
