@@ -1,5 +1,12 @@
 import React, { useState } from "react";
+import * as tf from '@tensorflow/tfjs';
 import './App.css';
+
+async function runModel() {
+  // const model = await tf.loadGraphModel( /* add json file here! */)
+}
+
+
 
 function App() {
   const [imageURL, setImageURL] = useState(null);
@@ -33,10 +40,10 @@ function App() {
     <div className="main">
       <img className="image logo" src="logo.png" alt="Le Sserafim logo"></img>
       <h1>LE SSERAFIND</h1>
-      <p>description here</p>
+      <p>upload an image to identify a member of Le Sserafim.</p>
       
       <div className="image_container">
-        {imageURL && <img className="image" src={imageURL} alt="Uploaded" />}
+        {imageURL && <img className="image upload" src={imageURL} alt="Uploaded" />}
       </div>
       
       <input type="file" accept="image/*" onChange={handleImageUpload} />

@@ -36,6 +36,12 @@ body {
   width: 50%;
 }
 
+.image.upload {
+  border:solid white;  
+  border-width: 10px 10px 40px 10px;
+  transform: rotate(2deg);
+}
+
 .image.logo {
   filter: invert(1);
 }
@@ -47,6 +53,11 @@ body {
   text-align: center;
   font-size: 18px;
   padding: 10px;
+}
+
+.button:hover {
+  background-color: grey;
+  transition: 0.4s;
 }
 
 input[type=file]::file-selector-button {
