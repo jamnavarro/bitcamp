@@ -14,50 +14,54 @@ function App() {
     reader.readAsDataURL(file);
   };
 
-  const identifyImage = async () => {
-    const formData = new FormData();
-    formData.append('file', imageURL);
-    
-    try {
-      const response = await fetch('http://127.0.0.1:5000/predict', {
-        method: 'POST',
-        body: formData
-      });
-      
-      if (!response.ok) {
-        throw new Error("couldn't identify image");
-      }
-
-      const contentType = response.headers.get("content-type");
-      if (contentType && contentType.includes("application/json")) {
-        const data = await response.json();
-        setIdentifiedPerson(data.output);
-      } else {
-        throw new Error("response is not JSON");
-      }
-    } catch (error) {
-      console.error("error identifying image: ", error);
-    }
-  }
-
   // const identifyImage = async () => {
+  //   console.log("Identifying image.");
+
+  //   const formData = new FormData();
+  //   formData.append('file', imageURL);
+    
   //   try {
-  //     const identifiedName = await classifyImage(); // Use the classifyImage function
-  //     setIdentifiedPerson(identifiedName);
+  //     const response = await fetch('http://127.0.0.1:5000/predict', {
+  //       method: 'POST',
+  //       body: formData
+  //     });
+
+  //     console.log("Got response: ", response);
+      
+  //     if (!response.ok) {
+  //       throw new Error("couldn't identify image");
+  //     }
+
+  //     const contentType = response.headers.get("content-type");
+  //     if (contentType && contentType.includes("application/json")) {
+  //       const data = await response.json();
+  //       setIdentifiedPerson(data.output);
+  //     } else {
+  //       throw new Error("response is not JSON");
+  //     }
   //   } catch (error) {
   //     console.error("error identifying image: ", error);
   //   }
-  // };
+  // }
 
-  // const classifyImage = async () => {
-  //   const names = ["Chaewon", "Sakura", "Yunjin", "Kazuha", "Eunchae"];
-  //   return new Promise((resolve, reject) => {
-  //     setTimeout(() => {
-  //       const randomIndex = Math.floor(Math.random() * names.length);
-  //       resolve(names[randomIndex]);
-  //     }, 1000);
-  //   });
-  // };
+  const identifyImage = async () => {
+    try {
+      const identifiedName = await classifyImage(); // Use the classifyImage function
+      setIdentifiedPerson(identifiedName);
+    } catch (error) {
+      console.error("error identifying image: ", error);
+    }
+  };
+
+  const classifyImage = async () => {
+    const names = ["Chaewon", "Sakura", "Yunjin", "Kazuha", "Eunchae"];
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const randomIndex = Math.floor(Math.random() * names.length);
+        resolve(names[randomIndex]);
+      }, 1000);
+    });
+  };
 
   return (
     <div className="main">
