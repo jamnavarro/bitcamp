@@ -16,15 +16,23 @@ function App() {
 
   const identifyImage = async () => {
     const formData = new FormData();
-    formData.append('image', imageURL);
+    formData.append('file', imageURL);
     
-    const response = await fetch('http://localhost:5000/predict', {
-      method: 'POST',
-      body: formData
-    });
-    
-    const data = await response.json();
-    setIdentifiedPerson(data.predicted_person);
+    try {
+      const response = await fetch('http://127.0.0.1:5000/predict', {
+        method: 'POST',
+        body: formData
+      });
+      
+      if (!response.ok) {
+        throw new Error("couldn't identify image");
+      }
+
+      const data = await response.json();
+      setIdentifiedPerson(data.output);
+    } catch (error) {
+      console.error("error identifying image: ", error);
+    }
   }
 
   // const classifyImage = async () => {
@@ -34,7 +42,7 @@ function App() {
 
   return (
     <div className="main">
-      {/* <img className="image logo" src="logo.png" alt="Le Sserafim logo"></img> */}
+      {/* <img className="image" src="logo.png" alt="Le Sserafim logo"></img> */}
       <h1>LE SSERAFIND</h1>
       <p>upload an image to identify a member of Le Sserafim.</p>
       
