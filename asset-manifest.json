@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/bitcamp/static/css/main.b1f726e3.css",
+    "main.js": "/bitcamp/static/js/main.89759a4a.js",
+    "static/media/background.jpeg": "/bitcamp/static/media/background.051d071a5a2e55aa4457.jpeg",
+    "index.html": "/bitcamp/index.html",
+    "main.b1f726e3.css.map": "/bitcamp/static/css/main.b1f726e3.css.map",
+    "main.89759a4a.js.map": "/bitcamp/static/js/main.89759a4a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b1f726e3.css",
+    "static/js/main.89759a4a.js"
+  ]
+}
